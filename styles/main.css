@@ -126,7 +126,16 @@ LAYOUT
 MOBILE
 ****************************************************************/
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 900px) {
+	
+	/* MOBILE LAYOUT */
+	body {
+		background: #f0f0f0 url('../img/footer.png');
+		background-attachment: fixed;
+		background-repeat: repeat-x;
+		background-position: center bottom;
+	}
+	
 	#logo {
 		display: block;
 		position: absolute;
@@ -140,13 +149,14 @@ MOBILE
 	
 	#main {
 		position: static; 
-		width: 95%;
+		width: auto;
 		height: 50%;
-		margin: 60px;
+		margin: 60px 30px;
 		top: 0;
 		padding-top: 65px;
 	}
 	
+	/* MOBILE NAV */
 	#nav {
 		position: static;
 		display: inline-block;
@@ -176,13 +186,15 @@ MOBILE
 		border-bottom: 2px solid #003bbc;
 	}
 	
-	
-	#footer {
-		position: absolute;
-	}
-	
 	#home #homenav a, #exp #expnav a, #res #resnav a, #contact #contactnav a {
 		color: #b6b6b6;
 		border: 0;
 	}
+	
+	/* MOBILE FOOTER */
+	
+	#footer {
+		display: none;
+	}
+	
 }
