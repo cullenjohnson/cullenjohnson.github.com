@@ -122,8 +122,11 @@ LAYOUT
 	padding: 0;
 }
 
+/****************************************************************
+MOBILE
+****************************************************************/
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
 	#logo {
 		display: block;
 		position: absolute;
@@ -137,7 +140,7 @@ LAYOUT
 	
 	#main {
 		position: static; 
-		width: auto;
+		width: 95%;
 		height: 50%;
 		margin: 60px;
 		top: 0;
@@ -171,6 +174,11 @@ LAYOUT
 		border: none;
 		color: #003bbc;
 		border-bottom: 2px solid #003bbc;
+	}
+	
+	
+	#footer {
+		position: absolute;
 	}
 	
 	#home #homenav a, #exp #expnav a, #res #resnav a, #contact #contactnav a {
