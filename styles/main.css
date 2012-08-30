@@ -32,6 +32,10 @@ a img{
 	border: 0;
 }
 
+.mobileonly {
+	display: none;
+}
+
 /****************************************************************
 LAYOUT
 ****************************************************************/
@@ -72,7 +76,7 @@ LAYOUT
 
 /* NAV */
 
-#nav {
+.nav {
 	font-family:  Agency FB;
 	font-size: 1.8em;
 	list-style: none;
@@ -85,7 +89,7 @@ LAYOUT
 	width: 100px;
 }
 
-#nav a {
+.nav a {
 	text-decoration: none;
 	color: black;
 	padding-right: 10px;
@@ -99,7 +103,7 @@ LAYOUT
 	cursor: default;
 }
 
-#nav a:hover {
+.nav a:hover {
 	color: #274c9b;
 	border-right: 4px solid #274c9b;
 }
@@ -129,6 +133,10 @@ MOBILE
 @media screen and (max-width: 900px) {
 	
 	/* MOBILE LAYOUT */
+	.mobileonly {
+		display: inline;
+	}
+	
 	body {
 		background: #f0f0f0 url('../img/footer.png');
 		background-attachment: fixed;
@@ -154,10 +162,11 @@ MOBILE
 		margin: 60px 30px;
 		top: 0;
 		padding-top: 65px;
+		padding-bottom: 10px;
 	}
 	
 	/* MOBILE NAV */
-	#nav {
+	.nav {
 		position: static;
 		display: inline-block;
 		margin: 0 auto;
@@ -168,11 +177,11 @@ MOBILE
 		width: 100%;
 	}
 	
-	#nav li {
+	.nav li {
 		display: inline-block;
 	}
 	
-	#nav a {		
+	.nav a {		
 		text-decoration: none;
 		color: #5a5a5a;
 		padding: 0;
@@ -180,7 +189,7 @@ MOBILE
 		float: none;
 	}
 	
-	#nav a:hover, #nav a:active, #nav a:focus {
+	.nav a:hover, .nav a:active, .nav a:focus {
 		border: none;
 		color: #003bbc;
 		border-bottom: 2px solid #003bbc;
