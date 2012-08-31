@@ -171,7 +171,7 @@ MOBILE
 	#logo {
 		display: block;
 		position: absolute;
-		top: 1em;
+		top: 8px;
 		left: 50%;
 		margin-left: -75px;
 	
