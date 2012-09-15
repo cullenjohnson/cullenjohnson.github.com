@@ -58,6 +58,7 @@ ul {
 
 .mobileonly {
 	display: none;
+	visibility: hidden;
 }
 
 /****************************************************************
@@ -119,16 +120,23 @@ LAYOUT
 	padding-right: 10px;
 	border-right: 4px solid white;
 	float: right;
+	
+	-moz-transition:all 0.5s ease;
+	-webkit-transition:all 0.5s ease;
+	-o-transition:all 0.5s ease;
+	transition:all 0.5s ease;
 }
 
 #home #homenav a, #exp #expnav a, #res #resnav a, #contact #contactnav a {
 	color: #274c9b;
 	border-right: 4px solid #274c9b;
+	padding-right: 5px;
 	cursor: default;
 }
 
 .nav a:hover {
 	color: #274c9b;
+	padding-right: 5px;
 	border-right: 4px solid #274c9b;
 }
 
@@ -159,6 +167,7 @@ MOBILE
 	/* MOBILE LAYOUT */
 	.mobileonly {
 		display: inline;
+		visibility: visible;
 	}
 	
 	body {
@@ -214,6 +223,7 @@ MOBILE
 		color: #5a5a5a;
 		padding: 0;
 		border-right: 0 none;
+		border-bottom: 2px solid white;
 		float: none;
 	}
 	
@@ -221,6 +231,9 @@ MOBILE
 		border: none;
 		color: #003bbc;
 		border-bottom: 2px solid #003bbc;
+		padding-right: 0px;
+		margin-bottom: 5px;
+		
 	}
 	
 	#home #homenav a, #exp #expnav a, #res #resnav a, #contact #contactnav a {
