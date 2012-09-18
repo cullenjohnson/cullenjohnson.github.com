@@ -20,7 +20,8 @@ $(window).load( function() {
 		overflow: 'hidden',
 		width: function() {
 			return panel_width + 5;
-		}
+		}, 
+		height: panel_list.first().height()
 	});
 	
 	$(panel_list).css('width', panel_width)
