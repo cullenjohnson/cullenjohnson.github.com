@@ -53,14 +53,87 @@ a:visited {
 }
 
 ul {
+	list-style-image: url('../img/bullet.png');
+}
+
+ul ul {
+	list-style-image: none;
 	list-style-type: square;
 }
+
+/* CUSTOM ELEMENTS */
 
 .mobileonly {
 	display: none;
 	visibility: hidden;
 }
 
+.slider_window {
+	position: relative;
+	width: 100%;
+	height: 430px;
+}
+.slider {
+	position: relative;
+	width: auto;
+	height: 430px;
+}
+
+.slider_panel {
+	display: inline_block;
+	
+	float: left;
+	margin: 5px;
+	width: 100%;
+	height: 430px;
+}
+
+.graphic_header {
+	display: block;
+	
+	
+	width: 580px;
+	height: 158px;
+	margin: 5px auto;
+	
+	position: relative;
+	z-index: 1;
+	
+	text-align: center;
+}
+
+.graphic_header h2 {
+	display: block;
+	
+	position: absolute;
+	
+	font-size: 3em;
+	font-weight: bold;
+	
+	text-shadow: 2px 2px 6px black;
+}
+
+
+#profile_header {
+	background: url('../img/indexphoto.png');
+	background-repeat: no-repeat;
+}
+
+#profile_header h2 {
+	top: 10px;
+	left: 160px;
+	color: white;
+}
+
+#xppreview_header {
+	background: url('../img/xppreview.png');
+	background-repeat: no-repeat;
+}
+
+#xppreview_header h2 {
+	left: 100px;
+	top: 10px;
+}
 /****************************************************************
 LAYOUT
 ****************************************************************/
@@ -89,6 +162,7 @@ LAYOUT
 	position: absolute;
 	left: -79px;
 	top: -68px;
+	z-index: 2;
 }
 
 #textwrapper {
@@ -200,6 +274,10 @@ MOBILE
 	
 	#textwrapper {
 		height: auto;
+	}
+	
+	.graphic_header {
+		width: auto;
 	}
 	
 	/* MOBILE NAV */
