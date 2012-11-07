@@ -201,7 +201,7 @@ LAYOUT
 	transition:all 0.5s ease;
 }
 
-#home #homenav a, #exp #expnav a, #res #resnav a, #contact #contactnav a {
+#home .homenav a, #exp .expnav a, #res .resnav a, #contact .contactnav a {
 	color: #274c9b;
 	border-right: 4px solid #274c9b;
 	padding-right: 5px;
