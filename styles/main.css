@@ -314,8 +314,8 @@ MOBILE
 		
 	}
 	
-	#home #homenav a, #exp #expnav a, #res #resnav a, #contact #contactnav a {
-		color: #b6b6b6;
+	#home .homenav a, #exp .expnav a, #res .resnav a, #contact .contactnav a {
+		color: #b6b6b6 !important;
 		border: 0;
 	}
 	
