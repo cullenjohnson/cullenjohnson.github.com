@@ -1,0 +1,79 @@
+body {
+    font-family: "Raleway", sans-serif;
+    background: #efefef;
+    color: #7B8D8E;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding-bottom: 2.5em;
+    font-size: 14pt;
+}
+
+h1, h2, h3 {
+    font-family: "Quicksand", sans-serif;
+    color: #3CBFC5;
+}
+
+h1.title {
+    margin-top: 0.7em;
+    margin-bottom: 0.2em;
+    text-align: center;
+    color: white;
+}
+
+div.header_block {
+    text-align: center;
+    background: #3cbfc5;
+    background: -moz-linear-gradient(top, #3cbfc5 0%, #2f9599 100%);
+    background: -webkit-linear-gradient(top, #3cbfc5 0%,#2f9599 100%);
+    background: linear-gradient(to bottom, #3cbfc5 0%,#2f9599 100%);
+    color: white;
+    padding: 0;
+}
+
+div.container {
+    width: 100ex;
+    margin: 0 auto;
+    flex: 1 1 auto;
+}
+
+div.call_to_action {
+    font-size: 1.3em;
+    background: #777;
+    color: white;
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 1em 0;
+}
+
+div.call_to_action a {
+    color: white;
+}
+
+div.call_to_action a:hover {
+    color: #5ecae5;
+}
+
+div.call_to_action a.big_button {
+    display: inline-block;
+    color: white;
+    background: #3cbfc5;
+    background: -moz-linear-gradient(top, #3cbfc5 0%, #2f9599 100%);
+    background: -webkit-linear-gradient(top, #3cbfc5 0%,#2f9599 100%);
+    background: linear-gradient(to bottom, #3cbfc5 0%,#2f9599 100%);
+    color: white;
+    font-family: "Quicksand", sans-serif;
+    font-size: 1.2em;
+    padding: 0.25em 1em;
+    margin: 0.25em;
+    text-decoration: none;
+    border-radius: 1em;
+}
+
+div.call_to_action a.big_button:hover {
+    color: white;
+    background: #5ecae5;
+    background: -moz-linear-gradient(top, #5ecae5 0%, #2f8399 100%);
+    background: -webkit-linear-gradient(top, #5ecae5 0%,#2f8399 100%);
+    background: linear-gradient(to bottom, #5ecae5 0%,#2f8399 100%);
+}
