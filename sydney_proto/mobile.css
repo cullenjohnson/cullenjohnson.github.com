@@ -1,0 +1,17 @@
+@media only screen and (max-width: 100ex)
+{
+    div.container {
+        width: 100%;
+        padding: 0 2ex;
+        box-sizing: border-box;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    img.float-img-right {
+        float: none;
+        display: block;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
