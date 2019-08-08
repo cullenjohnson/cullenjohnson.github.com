@@ -27,7 +27,6 @@ div.header_block {
 }
 
 img.header-logo {
-    display: block;
     max-height: 194px;
     max-width: 100%;
     margin: 0 auto;
@@ -40,8 +39,9 @@ img.header-img {
 }
 
 div.container {
-    width: 100ex;
+    width: 760px;
     margin: 0 auto;
+    padding: 0.5em 0;
     flex: 1 1 auto;
 }
 
@@ -51,7 +51,7 @@ div.call_to_action {
     color: white;
     flex: 1 1 auto;
     text-align: center;
-    padding: 1em 0;
+    padding: 1em 2ex;
 }
 
 div.call_to_action a {
@@ -96,6 +96,11 @@ div.divider {
     max-width: 100ex;
     width: 66vw;
     margin: 0 auto;
+}
+
+div.copyright {
+    font-style: italic;
+    font-size: 0.8rem;
 }
 
 img.float-img-right {

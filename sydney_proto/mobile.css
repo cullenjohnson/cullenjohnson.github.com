@@ -1,13 +1,13 @@
-@media only screen and (max-width: 100ex)
-{
+@media only screen and (max-width: 760px) {
     div.container {
-        width: 100%;
-        padding: 0 2ex;
-        box-sizing: border-box;
+        width: inherit;
+        padding: 0.5em 2ex;
     }
-}
+    
+    img.header-logo {
+        max-width: 50vw;
+    }
 
-@media only screen and (max-width: 800px) {
     img.float-img-right {
         float: none;
         display: block;
