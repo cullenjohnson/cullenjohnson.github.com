@@ -1,9 +1,12 @@
-div.image-gallery { position: relative; width: 100vw; height: 30vw; margin: 3vw; perspective: 1000px; overflow: hidden; background: no-repeat url("../img/grey_wood_bg.jpg"); background-size: cover; }
+div.image-gallery { position: relative; width: 100vw; height: 250px; margin: 3vw; perspective: 1000px; overflow: hidden; background: no-repeat url("../img/grey_wood_bg.jpg"); background-size: cover; }
 div.image-gallery::before { content: ' '; display: block; position: absolute; background: -webkit-radial-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)); background: -moz-radial-gradient(bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)); background: radial-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)); top: 0; left: 0; right: 0; bottom: 0; }
-div.image-gallery div.gallery-space { list-style: none; display: flex; margin-left: auto; margin-right: auto; flex-direction: row; transform-style: preserve-3d; transform: rotateX(45deg); align-items: flex-start; justify-content: space-around; }
-div.image-gallery div.gallery-space div.photo-container { position: relative; z-index: 1; }
-div.image-gallery div.gallery-space div.photo-container img { margin: calc(30vw * 0.1); height: calc(30vw * 0.8); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); transition: 0.3s ease-out; border-radius: 8px; }
-div.image-gallery div.gallery-space div.photo-container img:hover { transform: translateZ(6px); box-shadow: 0 5px 4px rgba(0, 0, 0, 0.6); }
+div.image-gallery div.gallery-space { list-style: none; display: flex; margin-left: auto; margin-right: auto; flex-direction: row; transform-style: preserve-3d; transform: rotateX(45deg); align-items: flex-start; justify-content: space-around; transition: transform 0.75s cubic-bezier(0.52, 0.92, 0.8, 1.08); }
+div.image-gallery div.gallery-space div.photo-container { position: relative; z-index: 1; transition: transform 0.25s cubic-bezier(0.52, 0.92, 0.8, 1.08); }
+div.image-gallery div.gallery-space div.photo-container > img { margin: calc(250px * 0.1); height: calc(250px * 0.8); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); transition: 0.3s ease-out; border-radius: 8px; }
+div.image-gallery div.gallery-space div.photo-container a.lightbox_icon { display: none; background: rgba(0, 0, 0, 0.5); position: absolute; border-radius: 4px; padding: 2px; right: calc(250px * 0.1); bottom: calc(250px * 0.1); z-index: 3; opacity: 0; transform: translateZ(8px); transition: opacity 0.2s ease-out; }
+div.image-gallery div.gallery-space div.photo-container:hover > img, div.image-gallery div.gallery-space div.photo-container.active > img { transform: translateZ(6px); box-shadow: 0 5px 4px rgba(0, 0, 0, 0.6); }
+div.image-gallery div.gallery-space div.photo-container:hover a.lightbox_icon, div.image-gallery div.gallery-space div.photo-container.active a.lightbox_icon { opacity: 1; display: block; }
+div.image-gallery div.gallery-space div.photo-container.active { transform: rotateX(-45deg); }
 
 @media screen and (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 html { scroll-behavior: smooth; }
@@ -14,7 +17,7 @@ h1, h2, h3 { font-family: "Strait", sans-serif; color: #2e59ad; }
 
 div.container { padding: 0.5em 0; flex: 1 1 auto; }
 div.container main article > * { width: 760px; margin-left: auto; margin-right: auto; }
-div.container main article > *.image-gallery { width: 100%; }
+div.container main article > *.image-gallery { width: auto; }
 div.container img { border-radius: 5px; box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1); }
 
 img.float-img-right { float: right; margin: 1ex; max-width: 40%; }
@@ -33,10 +36,12 @@ div.header_block div.fade_out { position: absolute; z-index: 1; top: 0; right: 0
 div.header_title_spacer { width: 100%; height: calc(40vmin / 2 - 2rem); flex: 0 1 auto; }
 
 div.site_title { top: 0; position: sticky; z-index: 2; height: 4rem; width: 100%; background-color: transparent; transition: background-color 0.2s ease-out; flex: 0 1 auto; }
+div.site_title svg#compucad_logo_svg { height: 4rem; padding: 0.4rem 0; fill: #2e59ad; transition: fill 0.2s ease-out 0; }
+div.site_title svg#compucad_logo_svg:hover, div.site_title svg#compucad_logo_svg:active { fill: #4a7ee0; }
 div.site_title h1 { margin: 0 auto; text-align: center; font-size: 3.2rem; }
 div.site_title.sticky { background-color: #2e59ad; }
-div.site_title.sticky a { color: white; }
-div.site_title a { transition: color 0.2s ease-out; color: #2e59ad; text-decoration: none; }
+div.site_title.sticky svg#compucad_logo_svg { height: 3.2rem; fill: white; }
+div.site_title a { text-decoration: none; }
 
 img.header-logo { max-height: 194px; max-width: 100%; margin: 0 auto; margin-bottom: 1em; }
 
@@ -44,8 +49,8 @@ img.header-img { max-width: 100%; max-height: 400px; border-radius: 5px; box-sha
 
 div.navbar { position: sticky; top: 4rem; box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3); background: #fafafa; z-index: 1; }
 
-nav { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-content: flex-start; align-items: flex-start; padding: 0.5ex 1ex; flex: 0 1 auto; }
-nav a, nav a:visited { padding: 0 1.5ex; color: #7B8D8E; text-decoration: none; position: relative; transition: color 0.3s ease-in; }
+nav { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-content: center; align-items: center; flex: 0 1 auto; }
+nav a, nav a:visited { padding: 0 1.5ex; margin: 1ex 0; color: #7B8D8E; text-decoration: none; position: relative; transition: color 0.3s ease-in; }
 nav a::after, nav a:visited::after { display: block; position: absolute; top: 100%; left: 50%; margin-left: 0; content: ""; transition: all 0.3s ease-in; padding: 1px; height: 0px; width: 0; border-radius: 2px; background: rgba(255, 255, 255, 0); }
 nav a:hover, nav a.current, nav a:focus, nav a:active, nav a:visited:hover, nav a:visited.current, nav a:visited:focus, nav a:visited:active { color: #2e59ad; }
 nav a:hover::after, nav a.current::after, nav a:focus::after, nav a:active::after, nav a:visited:hover::after, nav a:visited.current::after, nav a:visited:focus::after, nav a:visited:active::after { margin-left: calc(-50% + 2.5ex); width: calc(100% - 5ex); background: #2e59ad; }

@@ -1,4 +1,5 @@
 import { Scroll3DPerspective } from './scroll3DPerspective.mjs';
+import { PhotoGallery } from './PhotoGallery.mjs';
 
 const titleEl = document.querySelector('div.site_title'),
     offset = titleEl.getBoundingClientRect().height;
@@ -19,3 +20,7 @@ new Scroll3DPerspective(
         }
     });
 
+    
+document.querySelectorAll('div.image-gallery').forEach((el) => {
+    new PhotoGallery(el, 45);
+});
