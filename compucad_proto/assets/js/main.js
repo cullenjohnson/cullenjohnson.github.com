@@ -1,5 +1,5 @@
 import { Scroll3DPerspective } from './scroll3DPerspective.mjs';
-import { PhotoGallery } from './PhotoGallery.mjs';
+import { PhotoGallery } from './photoGallery.mjs';
 
 const titleEl = document.querySelector('div.site_title'),
     offset = titleEl.getBoundingClientRect().height;
