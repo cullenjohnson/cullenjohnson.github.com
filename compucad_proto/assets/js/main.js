@@ -1,5 +1,5 @@
-import { Scroll3DPerspective } from './scroll3DPerspective.mjs';
-import { PhotoGallery } from './photoGallery.mjs';
+import { Scroll3DPerspective } from '/compucad_proto/assets/js/scroll3DPerspective.mjs';
+import { PhotoGallery } from '/compucad_proto/assets/js/photoGallery.mjs';
 
 const titleEl = document.querySelector('div.site_title'),
     offset = titleEl.getBoundingClientRect().height;

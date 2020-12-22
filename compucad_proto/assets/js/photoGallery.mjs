@@ -3,14 +3,47 @@ export class PhotoGallery {
         this.galleryElement = galleryElement;
         this.xRotationDegrees = xRotationDegrees;
         
-        this.centerElement(this.galleryElement.querySelector('.photo-container.active'));
-        this.setupListeners();
+        const imageElements = Array.from(this.galleryElement.querySelectorAll('.gallery-image'));
+        imageElements.forEach((imgEl) => {imgEl.classList.add('invisible')});
+        this.galleryElement.querySelector('.gallery-space').classList.add('invisible');
+        
+        const imagePromises = imageElements.map((el) => this.loadImagePromise(el));
+        
+        Promise.allSettled((imagePromises)).then((results) => {
+            let totalWidth = 0;
+            const firstImageResult = results[0],
+                firstImageWidth = firstImageResult.status == 'fulfilled' 
+                        ? firstImageResult.value.img.naturalWidth * (firstImageResult.value.el.height / firstImageResult.value.img.naturalHeight)
+                        : 0 ;
+            
+            results.forEach((result) => {
+                if (result.status == 'fulfilled') {
+                    const imageWidth = result.value.img.naturalWidth;
+                    const resizeRatio = result.value.el.height / result.value.img.naturalHeight;
+                    const elStyle = window.getComputedStyle(result.value.el);
+                    
+                    totalWidth += (imageWidth * resizeRatio) + parseInt(elStyle.marginLeft) + parseInt(elStyle.marginRight);
+                    
+                    result.value.el.src = result.value.img.src;
+                }
+            });
+            
+            imageElements.forEach((imgEl) => {imgEl.classList.remove('invisible')});
+            this.centerElement(this.galleryElement.querySelector('.photo-container.active'), (totalWidth / 2) - (firstImageWidth / 2));
+            
+            window.setTimeout(() => {
+                this.galleryElement.querySelector('.gallery-space').classList.remove('invisible');
+                this.setupListeners();
+                this.galleryElement.classList.add('animated');
+            }, 10)
+        });
     }
     
     setupListeners() {
         this.observer = new MutationObserver(
             (mutationsList, observer) => this.mutationCallback(mutationsList, observer)
         );
+        
         const moConfig = {attributes: true};
         this.galleryElement.querySelectorAll('div.photo-container').forEach(el => {
             
@@ -21,6 +54,21 @@ export class PhotoGallery {
         
         this.galleryElement.addEventListener('swiped-left', e => this.swipedLeft(e));
         this.galleryElement.addEventListener('swiped-right', e => this.swipedRight(e));
+    }
+    
+    loadImagePromise(imgEl) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => {
+                resolve({el: imgEl, img: img});
+            };
+            
+            img.onError = () => {
+                reject();
+            };
+            
+            img.src = encodeURI(imgEl.dataset.src);
+        });
     }
     
     photoClicked(e) {
@@ -43,9 +91,11 @@ export class PhotoGallery {
         })
     }
     
-    centerElement(el) {
+    centerElement(el, manualTranslationAmount = null) {
         const gallerySpaceEl = this.galleryElement.querySelector('.gallery-space'),
-            translationAmount = ((gallerySpaceEl.offsetWidth - el.offsetWidth) / 2) - el.offsetLeft,
+            translationAmount = manualTranslationAmount != null 
+                    ? manualTranslationAmount 
+                    : ((gallerySpaceEl.offsetWidth - el.offsetWidth) / 2) - el.offsetLeft,
             transformation = `rotateX(${this.xRotationDegrees}deg) translateX(${translationAmount}px)`;
             
         gallerySpaceEl.style.webkitTransform = transformation;
