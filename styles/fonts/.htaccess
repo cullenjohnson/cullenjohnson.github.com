@@ -1,9 +1,0 @@
-<IfModule mod_headers.c>
-Header unset ETag
-Header unset Last-Modified
-</IfModule>
-FileETag None
-<FilesMatch "\.(eot|woff|ttf|svg|)$">
-Header unset Cache-control
-Header set Expires "Wed, 28 Apr 2016 20:00:00 GMT"
-</FilesMatch>

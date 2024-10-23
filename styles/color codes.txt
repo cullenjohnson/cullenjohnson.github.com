@@ -1,6 +1,0 @@
-bg code: d8d8d8
-primary: 274c9b
-logo: b6b6b6
-alternate 1 (deep blue): 003bbc
-alternate 2 (dark blue): 153371
-alternate 3 (grey blue): 274c9b
